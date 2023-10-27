@@ -1,12 +1,13 @@
 import { Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
 
 // import { GoogleAuthGuard } from './utils/auth.guard';
-import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { UsersService } from 'src/users/users.service';
 
 @Controller('auth')
+@ApiTags('유저 인증 API')
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
