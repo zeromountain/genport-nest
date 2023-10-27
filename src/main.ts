@@ -1,11 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { setupSwagger } from './utils/swagger';
 // import * as session from 'express-session';
 // import * as passport from 'passport';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
+
+  setupSwagger(app);
   // app.use(
   //   session({
   //     secret: 'asiodasjoddjdoasddasoidjasiodasdjaiodd',
